@@ -1,5 +1,5 @@
 //
-const url = './api/people.json';
+const url = './api/peowple.json';
 
 // const response = fetch(url);
 
