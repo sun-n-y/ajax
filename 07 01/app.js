@@ -1,23 +1,29 @@
 //
-const xhr = new XMLHttpRequest();
+const btn = document.querySelector('.btn');
 
-xhr.open('GET', './api/sample.txt');
+btn.addEventListener('click', () => {
+  getData();
+});
 
-xhr.onreadystatechange = function () {
-  //   console.log(xhr);
-  if (xhr.readyState === 4 && xhr.status === 200) {
-    const text = document.createElement('p');
-    text.textContent = xhr.responseText;
-    document.body.appendChild(text);
-  } else {
-    console.log({
-      status: xhr.status,
-      text: xhr.statusText,
-      state: xhr.readyState,
-    });
-  }
-};
+function getData() {
+  const xhr = new XMLHttpRequest();
 
-xhr.send();
+  xhr.open('GET', './api/sample.txt');
 
-console.log('hello');
+  xhr.onreadystatechange = function () {
+    //   console.log(xhr);
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      const text = document.createElement('p');
+      text.textContent = xhr.responseText;
+      document.body.appendChild(text);
+    } else {
+      console.log({
+        status: xhr.status,
+        text: xhr.statusText,
+        state: xhr.readyState,
+      });
+    }
+  };
+
+  xhr.send();
+}
